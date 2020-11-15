@@ -9,14 +9,15 @@
     <h1><a href="/">5 Best Web for Frontend</a></h1>
   </div>
 
-    {% for post in posts %}
-    <div>
-        <p>published: {{ post.published_date }}</p>
-        <h2><a href="">{{ post.title }}</a></h2>
-        <p>{{ post.text|linebreaksbr }}</p>
-    </div>
-    {% endfor %}
-  
+  {% for Post in posts %}
+  <div>
+    <p>published: {{ Post.published_date }}</p>
+    <h2><a href="">{{ Post.title }}</a></h2>
+    <p>{{ Post.text|linebreaksbr }}</p>
+  </div>
+  {% endfor %}
+
+
 </body>
 
 </html>
