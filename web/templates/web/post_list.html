@@ -1,26 +1,15 @@
+{% extends 'web/base.html' %}
 {% load static %}
-<html>
-    <head>
-        <title>web for dev</title>
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="{% static 'css/web.css' %}">
-    </head>
 
-<body>
-  <div>
-    <h1><a href="/">5 Best Web for Frontend</a></h1>
-  </div>
 
-  {% for Post in posts %}
-  <div>
-    <p>published: {{ Post.published_date }}</p>
-    <h2><a href="">{{ Post.title }}</a></h2>
-    <p>{{ Post.text|linebreaksbr }}</p>
-  </div>
+{% block content %}
+  {% for post in posts %}
+    <div class="post">
+      <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+      <p>{{ post.text|linebreaksbr }}</p>
+      <div class="date">
+        <p>published: {{ post.published_date }}</p>
+      </div>
+    </div>
   {% endfor %}
-
-
-</body>
-
-</html>
+{% endblock %}
